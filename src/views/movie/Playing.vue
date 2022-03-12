@@ -66,9 +66,9 @@ export default {
   },
   methods: {
     async onLoad() {
-      // console.log('loading', this.loading)
+      // console.log('loading', this.loading) //立即变为true，特别快
       let res = await this.$axios(api.getNow + '?pageNum=' + this.pageNum)
-      console.log(res)
+      // console.log(res)
       if (this.list.length < res.data.total) {
         this.list.push(...res.data.films)
         this.pageNum++

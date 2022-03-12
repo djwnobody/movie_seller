@@ -3,7 +3,7 @@
     <!-- 当滚动一定距离，.top(一直有固定)显示，header只固定（一直显示） -->
     <div class="top" v-show="sticky">
       电影
-      <span>上海<i class="iconfont icon-xiajiantou"></i> </span>
+      <span @click="toCity">上海<i class="iconfont icon-xiajiantou"></i> </span>
     </div>
     <Header :class="{ sticky: sticky }"></Header>
     <router-view></router-view>
@@ -33,6 +33,11 @@ export default {
   },
   components: {
     Header,
+  },
+  methods: {
+    toCity() {
+      this.$router.push('/city')
+    },
   },
 }
 </script>
