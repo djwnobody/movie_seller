@@ -6,7 +6,11 @@
       finished-text="-----  电影没有更多了  -----"
       @load="onLoad"
     >
-      <van-card v-for="item in list" :key="item.firmId">
+      <van-card
+        v-for="item in list"
+        :key="item.firmId"
+        @click="toDetail(item.firmId)"
+      >
         <template #title>
           <div class="title">
             {{ item.name }}<span>{{ item.item.name }}</span>
@@ -65,6 +69,7 @@ export default {
     // this.list = res.data.films
   },
   methods: {
+    // 下拉加载
     async onLoad() {
       // console.log('loading', this.loading) //立即变为true，特别快
       let res = await this.$axios(api.getNow + '?pageNum=' + this.pageNum)
@@ -76,6 +81,15 @@ export default {
         this.finished = true
       }
       this.loading = false
+    },
+    // 跳转详情页
+    toDetail(id) {
+      this.$router.push({
+        path: '/movie/detail',
+        query: {
+          id,
+        },
+      })
     },
   },
 }

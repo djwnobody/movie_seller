@@ -36,7 +36,7 @@ const routes = [
         component: Future,
       },
       {
-        path: 'future',
+        path: 'detail',
         component: Detail,
       },
     ],
