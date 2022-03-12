@@ -7,9 +7,10 @@ import Future from '@/views/movie/Future'
 import Detail from '@/views/movie/Detail'
 
 import Cinema from '@/views/cinema/Cinema'
-import My from '@/views/my/My'
+import My from '@/views/my'
 import News from '@/views/news/News'
 import City from '@/views/city/Index'
+// import Login from '@/views/login'
 
 Vue.use(VueRouter)
 // 处理路由跳转到当前页报错,改变this.$router.push()
@@ -56,6 +57,10 @@ const routes = [
   {
     path: '/city',
     component: City,
+  },
+  {
+    path: '/login',
+    component: () => import('@/views/login'), // 不用再最上面import
   },
 ]
 
