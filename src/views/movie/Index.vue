@@ -5,7 +5,7 @@
       电影
       <span @click="toCity">上海<i class="iconfont icon-xiajiantou"></i> </span>
     </div>
-    <Header :class="{ sticky: sticky }"></Header>
+    <Header :class="{ sticky: sticky }" v-show="detail"></Header>
     <router-view></router-view>
   </div>
 </template>
@@ -18,9 +18,15 @@ export default {
     return {
       // 控制top和header
       sticky: false,
+      // 控制header在detail页面不显示
+      detail:true,
     }
   },
-  async created() {},
+  async created() {
+    this.$eventBus.$on('header',(boolen)=>{
+      this.detail = boolen
+    })
+  },
   mounted() {
     window.addEventListener('scroll', () => {
       let top = document.documentElement.scrollTop

@@ -1,6 +1,10 @@
 <template>
   <div class="box">
-    <van-card v-for="item in list" :key="item.firmId">
+    <van-card
+      v-for="item in list"
+      :key="item.filmId"
+      @click="toDetail(item.filmId)"
+    >
       <template #title>
         <div class="title">
           {{ item.name }}<span>{{ item.filmType.name }}</span>
@@ -52,6 +56,17 @@ export default {
     //处理上映日期
     handlePremiereAt(val) {
       return moment().format('dddd LL')
+    },
+  },
+  methods: {
+    // 跳转详情页
+    toDetail(id) {
+      this.$router.push({
+        path: '/movie/detail',
+        query: {
+          id,
+        },
+      })
     },
   },
 }

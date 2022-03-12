@@ -4,4 +4,5 @@ export default {
   getCity: prefix + '/getCitiesInfo',
   getNow: prefix + '/getNowPlayingFilmList',
   getFuture: prefix + '/getComingSoonFilmList',
+  getDetail: prefix + '/getFilmInfo',
 }

@@ -1,13 +1,24 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <Footer></Footer>
+    <Footer v-show="detail"></Footer>
   </div>
 </template>
 
 <script>
 import Footer from '@/components/Footer'
 export default {
+  data() {
+    return {
+      // 不在detail页面显示
+      detail: true,
+    }
+  },
+  created() {
+    this.$eventBus.$on('header', (boolen) => {
+      this.detail = boolen
+    })
+  },
   components: {
     Footer,
   },

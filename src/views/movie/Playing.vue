@@ -8,8 +8,8 @@
     >
       <van-card
         v-for="item in list"
-        :key="item.firmId"
-        @click="toDetail(item.firmId)"
+        :key="item.filmId"
+        @click="toDetail(item.filmId)"
       >
         <template #title>
           <div class="title">
@@ -73,7 +73,7 @@ export default {
     async onLoad() {
       // console.log('loading', this.loading) //立即变为true，特别快
       let res = await this.$axios(api.getNow + '?pageNum=' + this.pageNum)
-      // console.log(res)
+      console.log(res)
       if (this.list.length < res.data.total) {
         this.list.push(...res.data.films)
         this.pageNum++

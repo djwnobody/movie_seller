@@ -8,6 +8,10 @@ import 'vant/lib/index.css'
 import '@/assets/font/iconfont.css' //字体图标
 Vue.use(Vant)
 
+// 事件中心，打开detail时，不显示footer和header
+const eventBus = new Vue()
+Vue.prototype.$eventBus = eventBus
+
 Vue.prototype.$axios = axios
 Vue.config.productionTip = false
 new Vue({
