@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <Footer v-show="detail"></Footer>
+    <Footer v-show="detail" v-if="$store.state.footerShowing"></Footer>
   </div>
 </template>
 

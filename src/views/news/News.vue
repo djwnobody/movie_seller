@@ -5,7 +5,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+  created() {
+    this.$store.commit('hideFooter')
+  },
+  beforeDestroy() {
+    this.$store.commit('showFooter')
+  },
+}
 </script>
 
 <style></style>

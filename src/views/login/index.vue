@@ -43,6 +43,12 @@ export default {
       console.log('submit', values)
     },
   },
+  created() {
+    this.$store.commit('hideFooter')
+  },
+  beforeDestroy() {
+    this.$store.commit('showFooter')
+  },
 }
 </script>
 

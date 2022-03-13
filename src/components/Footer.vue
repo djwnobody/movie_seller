@@ -34,6 +34,15 @@ export default {
       routes: ['/movie/playing', '/cinema', '/news', '/my'],
     }
   },
+  created() {
+    // router-view是根据url显示的；而组件高亮是通过active显示的
+    let index = this.routes.indexOf(this.$route.path)
+    // 即将上映的index为-1，footer一个都不高亮
+    if (index < 0) {
+      index = 0
+    }
+    this.active = index
+  },
   methods: {
     onChange(index) {
       this.$router.push(this.routes[index])
